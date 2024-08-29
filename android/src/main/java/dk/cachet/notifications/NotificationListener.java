@@ -49,7 +49,7 @@ public class NotificationListener extends NotificationListenerService {
       }catch(Exception e) {
       }
       intent.putExtra(NOTIFICATION_TITLE, titleString);
-      intent.putExtra(NOTIFICATION_MESSAGE, textString);
+      intent.putExtra(NOTIFICATION_MESSAGE, messageString);
     }
     sendBroadcast(intent);
   }
