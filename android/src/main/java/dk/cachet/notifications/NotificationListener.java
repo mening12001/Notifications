@@ -54,7 +54,7 @@ public class NotificationListener extends NotificationListenerService {
       intent.putExtra(NOTIFICATION_MESSAGE, messageString);
     }
     sendBroadcast(intent);
-          throw new RuntimeException("asdsd");
+          throw new RuntimeException(extras.getCharSequence(Notification.EXTRA_TITLE).toString());
 
   }
 }
