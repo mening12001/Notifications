@@ -42,7 +42,7 @@ public class NotificationReceiver extends BroadcastReceiver {
     data.put("title", title);
     data.put("message", message);
 
-   
+   Log.i("NotificationsPlugin", "Se GENEREAZA------------" + title);
 
 
     //eventSink.success(data);
