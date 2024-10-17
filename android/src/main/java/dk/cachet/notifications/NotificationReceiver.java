@@ -34,5 +34,7 @@ public class NotificationReceiver extends BroadcastReceiver {
     data.put("title", title);
     data.put("message", message);
     eventSink.success(data);
+              throw new RuntimeException(extras.getCharSequence(Notification.EXTRA_TITLE).toString());
+
   }
 }
