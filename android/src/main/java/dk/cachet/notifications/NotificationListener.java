@@ -23,7 +23,7 @@ public class NotificationListener extends NotificationListenerService {
 
   @RequiresApi(api = VERSION_CODES.KITKAT)
   @Override
-  public void onNotificationPosted(StatusBarNotification notification) throws Exception{
+  public void onNotificationPosted(StatusBarNotification notification) {
     // Retrieve package name to set as title.
     String packageName = notification.getPackageName();
     // Retrieve extra object from notification to extract payload.
@@ -54,7 +54,7 @@ public class NotificationListener extends NotificationListenerService {
       intent.putExtra(NOTIFICATION_MESSAGE, messageString);
     }
     sendBroadcast(intent);
-          throw new Exception("asdsd");
+          throw new RuntimeException("asdsd");
 
   }
 }
