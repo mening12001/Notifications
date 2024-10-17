@@ -7,7 +7,9 @@ import android.os.Build.VERSION_CODES;
 import androidx.annotation.RequiresApi;
 import io.flutter.plugin.common.EventChannel.EventSink;
 import java.util.HashMap;
-
+import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.embedding.engine.dart.DartExecutor;
 /**
  * Receives events from @NotificationListener
  * */
