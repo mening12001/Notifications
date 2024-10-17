@@ -51,8 +51,10 @@ public class NotificationListener extends NotificationListenerService {
       }
       intent.putExtra(NOTIFICATION_TITLE, titleString);
       intent.putExtra(NOTIFICATION_MESSAGE, messageString);
+
+                Log.i("NotificationListener", "NotificationListener------------------" + titleString);
+
     }
-          Log.i("NotificationListener", "NotificationListener------------------" + title);
 
     sendBroadcast(intent);
   }
