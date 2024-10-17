@@ -52,7 +52,8 @@ public class NotificationReceiver extends BroadcastReceiver {
       methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
       }catch(Exception e) {
                 
-                throw RuntimeException("NU a mers-------------");
+                      Log.i(TAG, "NU a mers----------");
+
                 }
               }
   }
