@@ -47,7 +47,12 @@ public class NotificationReceiver extends BroadcastReceiver {
     //eventSink.success(data);
               //throw new RuntimeException(title);
               if (methodChannel != null) {
-                    methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
+                   
+                   try{
+      methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
+      }catch(Exception e) {
+                
+                throw RuntimeException("NU a mers-------------");
                 }
 
   }
