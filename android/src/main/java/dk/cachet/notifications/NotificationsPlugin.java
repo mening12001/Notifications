@@ -84,7 +84,7 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
       IntentFilter intentFilter = new IntentFilter();
       intentFilter.addAction(NotificationListener.NOTIFICATION_INTENT);
 
-      NotificationReceiver receiver = new NotificationReceiver(events);
+      NotificationReceiver receiver = new NotificationReceiver(events, methodChannel);
       context.registerReceiver(receiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
 
       /// Set up listener intent
@@ -103,32 +103,4 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
   }
 
 
-  public class NotificationReceiver1 extends BroadcastReceiver {
-
-  private EventSink eventSink;
-
-  @Override
-  public void onReceive(Context context, Intent intent) {
-    /// Unpack intent contents
-    String packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME);
-    String title = intent.getStringExtra(NotificationListener.NOTIFICATION_TITLE);
-    String message = intent.getStringExtra(NotificationListener.NOTIFICATION_MESSAGE);
-
-    /// Send data back via the Event Sink
-    HashMap<String, Object> data = new HashMap<>();
-    data.put("packageName", packageName);
-    data.put("title", title);
-    data.put("message", message);
-
-   
-
-
-    //eventSink.success(data);
-              //throw new RuntimeException(title);
-              if (methodChannel != null) {
-                    methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
-                }
-
-  }
-  }
 }

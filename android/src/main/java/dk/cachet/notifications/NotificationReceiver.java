@@ -17,16 +17,18 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 public class NotificationReceiver extends BroadcastReceiver {
 
   private EventSink eventSink;
+   private MethodChannel methodChannel;
 
-  public NotificationReceiver(EventSink eventSink) {
+  public NotificationReceiver(EventSink eventSink, MethodChannel methodChannel) {
     this.eventSink = eventSink;
+    this.methodChannel = methodChannel;
   }
 
   @RequiresApi(api = VERSION_CODES.JELLY_BEAN_MR2)
   @Override
   public void onReceive(Context context, Intent intent) {
     /// Unpack intent contents
-   /* String packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME);
+    String packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME);
     String title = intent.getStringExtra(NotificationListener.NOTIFICATION_TITLE);
     String message = intent.getStringExtra(NotificationListener.NOTIFICATION_MESSAGE);
 
@@ -39,11 +41,11 @@ public class NotificationReceiver extends BroadcastReceiver {
    
 
 
-    eventSink.success(data);
+    //eventSink.success(data);
               //throw new RuntimeException(title);
               if (methodChannel != null) {
                     methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
                 }
-*/
+
   }
 }

@@ -4,8 +4,3 @@
 
 </manifest>
 
-  <receiver android:name=".NotificationReceiver1">
-    <intent-filter>
-        <action android:name="NOTIFICATION_INTENT" />
-    </intent-filter>
-</receiver>
