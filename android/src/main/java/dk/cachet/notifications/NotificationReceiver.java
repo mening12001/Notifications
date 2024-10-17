@@ -33,8 +33,14 @@ public class NotificationReceiver extends BroadcastReceiver {
     data.put("packageName", packageName);
     data.put("title", title);
     data.put("message", message);
+
+    new MethodChannel(((FlutterActivity) context).getFlutterEngine().getDartExecutor(), "com.elusive.notifications")
+                .invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
+        
+
+
     eventSink.success(data);
-              throw new RuntimeException(title);
+              //throw new RuntimeException(title);
 
   }
 }
