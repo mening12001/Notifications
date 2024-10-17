@@ -130,4 +130,5 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
                 }
 
   }
+  }
 }
