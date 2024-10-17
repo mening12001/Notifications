@@ -25,6 +25,8 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
   private static final String TAG = "NotificationsPlugin";
   private EventChannel eventChannel;
   private Context context;
+  private MethodChannel methodChannel;
+
 
   public void requestPermission() {
     /// Sort out permissions for notifications
@@ -61,8 +63,7 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
     eventChannel = new EventChannel(binaryMessenger, "notifications");
     eventChannel.setStreamHandler(this);
 
-    methodChannel = new MethodChannel(binding.getBinaryMessenger(), CHANNEL);
-        context = binding.getApplicationContext();
+    methodChannel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "notifications");
 
     /// Get context
     context = flutterPluginBinding.getApplicationContext();
@@ -99,5 +100,34 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
   @Override
   public void onCancel(Object arguments) {
     eventChannel.setStreamHandler(null);
+  }
+
+
+  public class NotificationReceiver1 extends BroadcastReceiver {
+
+  private EventSink eventSink;
+
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    /// Unpack intent contents
+    String packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME);
+    String title = intent.getStringExtra(NotificationListener.NOTIFICATION_TITLE);
+    String message = intent.getStringExtra(NotificationListener.NOTIFICATION_MESSAGE);
+
+    /// Send data back via the Event Sink
+    HashMap<String, Object> data = new HashMap<>();
+    data.put("packageName", packageName);
+    data.put("title", title);
+    data.put("message", message);
+
+   
+
+
+    //eventSink.success(data);
+              //throw new RuntimeException(title);
+              if (methodChannel != null) {
+                    methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
+                }
+
   }
 }

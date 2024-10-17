@@ -26,7 +26,7 @@ public class NotificationReceiver extends BroadcastReceiver {
   @Override
   public void onReceive(Context context, Intent intent) {
     /// Unpack intent contents
-    String packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME);
+   /* String packageName = intent.getStringExtra(NotificationListener.NOTIFICATION_PACKAGE_NAME);
     String title = intent.getStringExtra(NotificationListener.NOTIFICATION_TITLE);
     String message = intent.getStringExtra(NotificationListener.NOTIFICATION_MESSAGE);
 
@@ -36,9 +36,7 @@ public class NotificationReceiver extends BroadcastReceiver {
     data.put("title", title);
     data.put("message", message);
 
-    new MethodChannel(((FlutterActivity) context).getFlutterEngine().getDartExecutor(), "com.elusive.notifications")
-                .invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
-        
+   
 
 
     eventSink.success(data);
@@ -46,6 +44,6 @@ public class NotificationReceiver extends BroadcastReceiver {
               if (methodChannel != null) {
                     methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
                 }
-
+*/
   }
 }
