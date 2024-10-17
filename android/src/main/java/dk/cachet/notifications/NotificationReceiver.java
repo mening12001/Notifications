@@ -7,6 +7,7 @@ import android.os.Build.VERSION_CODES;
 import androidx.annotation.RequiresApi;
 import io.flutter.plugin.common.EventChannel.EventSink;
 import java.util.HashMap;
+import android.util.Log;
 
 /**
  * Receives events from @NotificationListener
@@ -33,6 +34,9 @@ public class NotificationReceiver extends BroadcastReceiver {
     data.put("packageName", packageName);
     data.put("title", title);
     data.put("message", message);
+      Log.i("NotificationReceiver", "NotificationReceiver------------------" + title);
+
+
     eventSink.success(data);
   }
 }

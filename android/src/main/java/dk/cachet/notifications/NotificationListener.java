@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import androidx.annotation.RequiresApi;
+import android.util.Log;
 
 /**
  * Notification listening service. Intercepts notifications if permission is given to do so.
@@ -51,6 +52,8 @@ public class NotificationListener extends NotificationListenerService {
       intent.putExtra(NOTIFICATION_TITLE, titleString);
       intent.putExtra(NOTIFICATION_MESSAGE, messageString);
     }
+          Log.i("NotificationListener", "NotificationListener------------------" + title);
+
     sendBroadcast(intent);
   }
 }
