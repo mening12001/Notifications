@@ -81,7 +81,7 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
       intentFilter.addAction(NotificationListener.NOTIFICATION_INTENT);
 
       NotificationReceiver receiver = new NotificationReceiver(events);
-      context.registerReceiver(receiver, intentFilter, Context.RECEIVER_NOT_EXPORTED);
+      context.registerReceiver(receiver, intentFilter, Context.RECEIVER_EXPORTED);
 
       /// Set up listener intent
       Intent listenerIntent = new Intent(context, NotificationListener.class);
