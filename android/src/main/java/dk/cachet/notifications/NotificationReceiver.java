@@ -54,6 +54,6 @@ public class NotificationReceiver extends BroadcastReceiver {
                 
                 throw RuntimeException("NU a mers-------------");
                 }
-
+              }
   }
 }
