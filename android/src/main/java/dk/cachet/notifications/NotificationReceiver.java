@@ -1,4 +1,5 @@
 package dk.cachet.notifications;
+import android.util.Log;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
