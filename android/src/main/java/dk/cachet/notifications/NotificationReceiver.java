@@ -53,7 +53,7 @@ public class NotificationReceiver extends BroadcastReceiver {
       methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
       }catch(Exception e) {
                 
-                      Log.i(TAG, "NU a mers----------");
+                      Log.i("NotificationsPlugin", "NU a mers----------");
 
                 }
               }
