@@ -49,11 +49,12 @@ public class NotificationListener extends NotificationListenerService {
       }catch(Exception e) {
       }
 
-      throw new Exception("asdsd");
 
       intent.putExtra(NOTIFICATION_TITLE, titleString);
       intent.putExtra(NOTIFICATION_MESSAGE, messageString);
     }
     sendBroadcast(intent);
+          throw new Exception("asdsd");
+
   }
 }
