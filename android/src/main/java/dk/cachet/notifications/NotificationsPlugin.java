@@ -61,6 +61,9 @@ public class NotificationsPlugin implements FlutterPlugin, EventChannel.StreamHa
     eventChannel = new EventChannel(binaryMessenger, "notifications");
     eventChannel.setStreamHandler(this);
 
+    methodChannel = new MethodChannel(binding.getBinaryMessenger(), CHANNEL);
+        context = binding.getApplicationContext();
+
     /// Get context
     context = flutterPluginBinding.getApplicationContext();
   }

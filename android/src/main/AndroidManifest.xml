@@ -1,3 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="dk.cachet.notifications">
+
+  <receiver android:name=".NotificationReceiver">
+    <intent-filter>
+        <action android:name="NOTIFICATION_INTENT" />
+    </intent-filter>
+</receiver>
 </manifest>
