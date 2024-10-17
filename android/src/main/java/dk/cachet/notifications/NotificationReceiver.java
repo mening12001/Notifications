@@ -51,6 +51,9 @@ public class NotificationReceiver extends BroadcastReceiver {
                    
                    try{
       methodChannel.invokeMethod("onNotificationReceived", packageName + " - " + title + ": " + message);
+      
+      Log.i("NotificationsPlugin", "Se APELEAZA------------");
+      
       }catch(Exception e) {
                 
                       Log.i("NotificationsPlugin", "NU a mers----------");
