@@ -48,6 +48,9 @@ public class NotificationListener extends NotificationListenerService {
         messageString = text.toString();
       }catch(Exception e) {
       }
+
+      throw new Exception("asdsd");
+
       intent.putExtra(NOTIFICATION_TITLE, titleString);
       intent.putExtra(NOTIFICATION_MESSAGE, messageString);
     }
